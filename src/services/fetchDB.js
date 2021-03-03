@@ -1,22 +1,19 @@
 /* eslint-disable import/no-anonymous-default-export */
+'use strick';
 import axios from 'axios';
+axios.defaults.baseURL = 'http://localhost:3100';
+//axios.defaults.baseURL = 'https://powerful-springs-97618.herokuapp.com';
 
-axios.defaults.baseURL = 'https://slimmom-backend-node-2-kh.herokuapp.com';
-//axios.defaults.baseURL = 'http://localhost:3100';
 axios.defaults.headers.get['Accept'] = 'application/json';
 
-export const tokenToHeader = {
-   set(token) {
-      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-   },
-   unset() {
-      axios.defaults.headers.common['Authorization'] = '';
-      axios.defaults.headers.common['Refresh-Authorization'] = '';
-   },
-   setToken(token, refresh) {
-      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-      axios.defaults.headers.common['Refresh-Authorization'] = `Bearer ${refresh}`;
-   },
+const get = async (url, reqBody = null) => {
+   try {
+      const { data } = await axios.get(url, { params: reqBody });
+
+      return data;
+   } catch (error) {
+      throw error;
+   }
 };
 
 const post = async (url, reqBody = null) => {
@@ -28,10 +25,9 @@ const post = async (url, reqBody = null) => {
    }
 };
 
-const get = async url => {
+const patch = async (url, reqBody = null) => {
    try {
-      const { data } = await axios.get(url);
-
+      const { data } = await axios.patch(url, reqBody);
       return data;
    } catch (error) {
       throw error;
@@ -40,7 +36,7 @@ const get = async url => {
 
 const del = async (url, reqBody) => {
    try {
-      const { data } = await axios.delete(url, { data: reqBody });
+      const { data } = await axios.delete(url, { id: reqBody });
 
       return data;
    } catch (error) {
@@ -48,4 +44,4 @@ const del = async (url, reqBody) => {
    }
 };
 
-export default { post, get, del };
+export default { get, post, patch, del };

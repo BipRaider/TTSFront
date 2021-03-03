@@ -1,0 +1,20 @@
+.link {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 100px;
+   height: 3rem;
+   margin: 0 3px;
+
+   font-family: Gotham Pro;
+   font-style: normal;
+   font-weight: bold;
+   font-size: 1rem;
+   line-height: 1rem;
+   text-align: center;
+   letter-spacing: 0.04em;
+   text-transform: uppercase;
+
+   background-color: #fc842d;
+   color: rgb(255, 255, 255);
+}

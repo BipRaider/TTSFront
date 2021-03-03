@@ -1,0 +1,21 @@
+.item {
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
+
+   width: 100%;
+   margin-bottom: 1rem;
+
+   background-color: rgb(255, 255, 255);
+   border: 1px solid rgb(155, 159, 170);
+}
+
+.text {
+   font-family: Verdana;
+   font-style: normal;
+   font-weight: bold;
+   font-size: 1rem;
+   line-height: 1rem;
+   letter-spacing: 0.04em;
+   color: #9b9faa;
+}
