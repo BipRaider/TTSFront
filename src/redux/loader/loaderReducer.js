@@ -8,6 +8,12 @@ import loaderAction from './loaderActions';
 const loader = createReducer(false, {
    [loaderAction.endLoader]: () => false,
 
+   [loaderAction.findBike]: () => false,
+   [loaderAction.addBikeListHire]: () => false,
+   [loaderAction.removeBikeListHire]: () => false,
+   [loaderAction.removeBikeListRent]: () => false,
+   [loaderAction.addBikeListRent]: () => false,
+
    [bicyclesActions.registerBikeError]: () => true,
    [bicyclesActions.registerBikeRequest]: () => true,
    [bicyclesActions.registerBikeSuccess]: () => false,
