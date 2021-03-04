@@ -9,9 +9,7 @@ import styles from './RegisterPage.module.css';
 const RegisterPage = () => {
    return (
       <div className={styles.wrapper}>
-         <section className={styles.container}>
-            <RegistrationForm />
-         </section>
+         <RegistrationForm />
          <RentList />
          <AvailableBicycles />
       </div>

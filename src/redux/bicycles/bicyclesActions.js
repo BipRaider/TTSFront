@@ -1,5 +1,8 @@
 /* eslint-disable import/no-anonymous-default-export */
+'use strick';
+
 import { createAction } from '@reduxjs/toolkit';
+const findBike = createAction('FIND/findBike');
 
 const listRentRequest = createAction('GET/listRentRequest');
 const listRentSuccess = createAction('GET/listRentSuccess');
@@ -28,9 +31,9 @@ const deleteBikeSuccess = createAction('DELETE/deleteBikeSuccess');
 const deleteBikeError = createAction('DELETE/deleteBikeError');
 
 export default {
+   findBike,
    addBikeListHire,
    removeBikeListHire,
-
    removeBikeListRent,
    addBikeListRent,
 

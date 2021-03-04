@@ -10,12 +10,14 @@ import { bicyclesOperations } from '../../../redux/bicycles';
 
 import styles from './RegistrationForm.module.css';
 import Alert from '../Alert';
+import Sections from '../../common/Sections';
+import BikeType from './BikeType';
 
 const RegistrationForm = () => {
    const [bikeName, setBikeName] = useState('');
    const changeBikeName = ({ value }) => setBikeName(value);
 
-   const [bikeType, setBikeType] = useState('');
+   const [bikeType, setBikeType] = useState('city');
    const changeBikeType = ({ value }) => setBikeType(value);
 
    const [rentPrice, setRentPrice] = useState('');
@@ -36,13 +38,12 @@ const RegistrationForm = () => {
 
    const clearForm = () => {
       setBikeName('');
-      setBikeType('');
       setRentPrice('');
    };
 
    return (
-      <div className={styles.wrapper}>
-         <h2 className={styles.title}>Create new rent</h2>
+      <Sections>
+         <h3 className={styles.title}>Create new rent</h3>
          <Alert>
             <form className={styles.form} onSubmit={handlerSubmit}>
                <BasicInput
@@ -51,12 +52,9 @@ const RegistrationForm = () => {
                   placeholder="Bike name*"
                   onChange={changeBikeName}
                />
-               <BasicInput
-                  value={bikeType}
-                  type="text"
-                  placeholder="Bike type*"
-                  onChange={changeBikeType}
-               />
+
+               <BikeType onChange={changeBikeType}></BikeType>
+
                <BasicInput
                   value={rentPrice}
                   type="text"
@@ -67,7 +65,7 @@ const RegistrationForm = () => {
                <BasicButton type="submit">Submit rent</BasicButton>
             </form>
          </Alert>
-      </div>
+      </Sections>
    );
 };
 

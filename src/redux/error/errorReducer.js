@@ -1,3 +1,5 @@
+'use strick';
+
 import { createReducer } from '@reduxjs/toolkit';
 
 import cleanError, { writingInError } from './errorActions';

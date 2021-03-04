@@ -1,0 +1,8 @@
+.basic_button {
+   color: #ffffff;
+   background: #ff0101;
+}
+.rent_button:active,
+.rent_button:focus {
+   color: #fc842d;
+}

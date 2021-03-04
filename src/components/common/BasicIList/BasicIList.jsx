@@ -6,7 +6,7 @@ import BasicItem from '../BasicItem';
 
 import styles from './BasicIList.module.css';
 
-const Item = ({ children, ...props }) => {
+const BasicIList = ({ children, ...props }) => {
    const { listItem } = props;
 
    return (
@@ -20,4 +20,4 @@ const Item = ({ children, ...props }) => {
    );
 };
 
-export default Item;
+export default BasicIList;

@@ -1,3 +1,5 @@
+'use strick';
+
 import { createAction } from '@reduxjs/toolkit';
 
 const cleanError = createAction('error/clearError');

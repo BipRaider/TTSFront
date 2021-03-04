@@ -2,11 +2,9 @@
 
 import React from 'react';
 
-import BasicButton from '../BasicButton';
-
 import styles from './BasicItem.module.css';
 
-const Item = ({ children, ...props }) => {
+const BasicItem = ({ children, ...props }) => {
    const { id, name, rent, typeBike: bikeType } = props;
 
    return (
@@ -14,9 +12,11 @@ const Item = ({ children, ...props }) => {
          <p className={styles.text}>
             {name} / {bikeType} / ${rent}
          </p>
-         {children}
+         <div className={styles.listBtn} data-id={id}>
+            {children}
+         </div>
       </li>
    );
 };
 
-export default Item;
+export default BasicItem;

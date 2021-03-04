@@ -4,25 +4,22 @@ import React, { useEffect, useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { bicyclesOperations, bicyclesSelector, bicyclesActions } from '../../../redux/bicycles';
+import { bicyclesOperations, bicyclesSelector } from '../../../redux/bicycles';
 
-import BasicButton from '../../common/BasicButton';
 import BasicIList from '../../common/BasicIList';
+import Sections from '../../common/Sections';
+import RentBtn from './RideBtn/RentBtn';
 
 const RentList = () => {
    const listItem = useSelector(bicyclesSelector.getListRent);
+
    const [totalRent, setTotalRent] = useState(0);
 
    const dispatch = useDispatch();
 
-   const handlerClick = e => {
-      e.preventDefault();
-      console.dir(e.target.parentElement.dataset.id);
-      dispatch(bicyclesActions.removeBikeListRent(e.target.parentElement.dataset.id));
-   };
-
    useEffect(() => {
       bicyclesOperations.getBicyclesListRent(dispatch);
+      // eslint-disable-next-line react-hooks/exhaustive-deps
    }, []);
 
    useEffect(() => {
@@ -30,26 +27,21 @@ const RentList = () => {
    }, [listItem]);
 
    const countTotalRent = data => {
+      let count = 0;
       data.forEach(({ rent }) => {
-         setTotalRent(prev => prev + rent);
+         count += rent;
       });
+      setTotalRent(count);
    };
 
    return (
-      <section>
-         <h2>Your rent (Total: ${totalRent})</h2>
+      <Sections>
+         <h3>Your rent (Total: ${totalRent})</h3>
 
          <BasicIList listItem={listItem}>
-            <BasicButton
-               onClick={e => {
-                  handlerClick(e);
-               }}
-               id={''}
-            >
-               Cancel Rent
-            </BasicButton>
+            <RentBtn>Cancel Rent </RentBtn>
          </BasicIList>
-      </section>
+      </Sections>
    );
 };
 

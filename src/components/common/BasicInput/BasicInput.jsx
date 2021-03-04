@@ -2,7 +2,7 @@ import React from 'react';
 
 import styles from './BasicInput.module.css';
 
-const PrimaryInput = ({ ...props }) => {
+const BasicInput = ({ ...props }) => {
    const { onChange } = props;
 
    return (
@@ -15,4 +15,4 @@ const PrimaryInput = ({ ...props }) => {
    );
 };
 
-export default PrimaryInput;
+export default BasicInput;

@@ -1,4 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
+'use strick';
+
 const getBike = state => state.bicycles.registerBike;
 const getBikeId = state => state.bicycles.registerBike.id;
 const getListRent = state => state.bicycles.listRent;

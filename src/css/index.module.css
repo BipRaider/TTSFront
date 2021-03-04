@@ -49,3 +49,104 @@ span {
    vertical-align: baseline;
    outline: none;
 }
+
+header {
+   display: -webkit-box;
+   display: -ms-flexbox;
+   display: flex;
+   -webkit-box-pack: center;
+   -ms-flex-pack: center;
+   justify-content: center;
+
+   width: 100%;
+   margin: 1rem auto;
+}
+
+h3 {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+   font-family: Gotham Pro;
+   font-style: normal;
+   font-weight: bold;
+   font-size: 1.5rem;
+   line-height: 3rem;
+   text-align: center;
+   letter-spacing: 0.04em;
+   text-transform: capitalize;
+
+   color: #000000;
+   margin-bottom: 0.8rem;
+}
+
+h2 {
+   font-style: normal;
+   font-weight: bold;
+   font-size: 1.5rem;
+   line-height: 1.5rem;
+   letter-spacing: 0.04em;
+   color: #000000;
+}
+
+p {
+   font-family: Verdana;
+   font-style: normal;
+   font-weight: bold;
+   font-size: 1rem;
+   line-height: 1rem;
+   letter-spacing: 0.04em;
+   color: #9b9faa;
+}
+span {
+   font-family: Verdana;
+   font-style: normal;
+   font-weight: bold;
+   font-size: 0.8rem;
+   line-height: 0.8rem;
+   letter-spacing: 0.04em;
+   color: #000000;
+}
+button {
+   min-width: 10rem;
+
+   font-family: Verdana;
+   font-style: normal;
+   font-weight: bold;
+   font-size: 1rem;
+   line-height: 3rem;
+   text-align: center;
+   letter-spacing: 0.04em;
+
+   padding: 0 0.6rem;
+   margin-right: 1rem;
+   cursor: pointer;
+   border: none;
+
+   border-radius: 0.3rem;
+   -webkit-border-radius: 0.3rem;
+   -moz-border-radius: 0.3rem;
+   -ms-border-radius: 0.3rem;
+   -o-border-radius: 0.3rem;
+}
+
+button:active,
+button:focus {
+   background: #fc842d;
+   outline: none;
+   box-sizing: border-box;
+   box-shadow: none;
+}
+
+@media screen and (max-width: 810px) {
+   button {
+      margin: 1rem;
+   }
+}
+
+@media screen and (max-width: 400px) {
+   button {
+      min-width: 8rem;
+      margin: 0.3rem;
+   }
+}

@@ -1,3 +1,5 @@
+'use strick';
+
 import { combineReducers } from 'redux';
 import { createReducer } from '@reduxjs/toolkit';
 import { bicyclesActions } from '.';
@@ -16,9 +18,13 @@ const newBike = (_, { payload }) => {
    return { name, id: _id, rent, hire, typeBike, time };
 };
 
-const deleteBike = (state, { payload }) => state.filter(({ id }) => id !== payload);
+const deleteBike = (state, { payload }) => {
+   return state.filter(({ id }) => id !== payload);
+};
 
-const addBike = (state, { payload }) => [...state, payload];
+const addBike = (state, { payload }) => {
+   return [...state, payload];
+};
 
 const registerBike = createReducer(INITIAL_BIKE_STATE, {
    [bicyclesActions.registerBikeSuccess]: newBike,

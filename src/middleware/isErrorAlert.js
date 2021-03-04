@@ -1,3 +1,5 @@
+'use strick';
+
 import cleanError, { writingInError } from '../redux/error/errorActions';
 
 import { loaderActions } from '../redux/loader';

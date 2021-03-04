@@ -4,13 +4,8 @@ import { loaderActions } from '../redux/loader';
 
 const refreshState = ({ dispatch }) => next => async action => {
    try {
-      if (action.type === bicyclesActions.logoutUserSuccess.type) {
-         await bicyclesOperations.refreshUser(dispatch);
-         dispatch(loaderActions.endLoader());
-      }
-
-      if (action.type === bicyclesActions.refreshUserRequest.type) {
-         await bicyclesOperations.refreshUser(dispatch);
+      if (action.type === bicyclesActions.registerBikeSuccess.type) {
+         await bicyclesOperations.getBicyclesListHire(dispatch);
          dispatch(loaderActions.endLoader());
       }
 

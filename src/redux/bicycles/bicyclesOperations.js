@@ -1,4 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
+'use strick';
+
 import { bicyclesActions } from '.';
 
 import fetchDB from '../../services/fetchDB';
@@ -9,7 +11,8 @@ const registerNewBike = async (data, dispatch) => {
       const { bike } = await fetchDB.post(`/add`, data);
 
       dispatch(bicyclesActions.registerBikeSuccess(bike));
-      dispatch(bicyclesActions.addBikeListHire(bike));
+
+      dispatch(bicyclesActions.addBikeListHire({ ...bike, id: bike._id }));
    } catch (error) {
       dispatch(bicyclesActions.registerBikeError(error));
    }
@@ -37,24 +40,24 @@ const getBicyclesListRent = async dispatch => {
 };
 
 const changeBike = async (id, dispatch) => {
-   dispatch(bicyclesActions.refreshBikeRequest());
+   dispatch(bicyclesActions.changeBikeRequest());
    try {
       const data = await fetchDB.patch(`/change`, id);
 
-      await dispatch(bicyclesActions.refreshBikeSuccess(data));
+      await dispatch(bicyclesActions.changeBikeSuccess(data));
    } catch (error) {
-      dispatch(bicyclesActions.refreshBikeError(error));
+      dispatch(bicyclesActions.changeBikeError(error));
    }
 };
 
-const deleteBike = () => async (id, dispatch) => {
-   dispatch(bicyclesActions.refreshBikeRequest());
+const deleteBike = async (id, dispatch) => {
+   dispatch(bicyclesActions.deleteBikeRequest());
    try {
-      const data = await fetchDB.patch(`/delete`, id);
+      const data = await fetchDB.del(`/delete`, id);
 
-      await dispatch(bicyclesActions.refreshBikeSuccess(data));
+      await dispatch(bicyclesActions.deleteBikeSuccess(data));
    } catch (error) {
-      dispatch(bicyclesActions.refreshBikeError(error));
+      dispatch(bicyclesActions.deleteBikeError(error));
    }
 };
 

@@ -1,8 +1,10 @@
 /* eslint-disable import/no-anonymous-default-export */
 'use strick';
+
 import axios from 'axios';
-axios.defaults.baseURL = 'http://localhost:3100';
-//axios.defaults.baseURL = 'https://powerful-springs-97618.herokuapp.com';
+
+//axios.defaults.baseURL = 'http://localhost:3100';
+axios.defaults.baseURL = 'https://powerful-springs-97618.herokuapp.com';
 
 axios.defaults.headers.get['Accept'] = 'application/json';
 
@@ -27,7 +29,7 @@ const post = async (url, reqBody = null) => {
 
 const patch = async (url, reqBody = null) => {
    try {
-      const { data } = await axios.patch(url, reqBody);
+      const { data } = await axios.patch(url, { id: reqBody });
       return data;
    } catch (error) {
       throw error;
@@ -36,7 +38,7 @@ const patch = async (url, reqBody = null) => {
 
 const del = async (url, reqBody) => {
    try {
-      const { data } = await axios.delete(url, { id: reqBody });
+      const { data } = await axios.delete(url, { params: { id: reqBody } });
 
       return data;
    } catch (error) {
