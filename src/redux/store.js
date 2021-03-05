@@ -5,7 +5,7 @@ import { bicyclesReducers } from '../redux/bicycles';
 
 import { loaderReducer } from '../redux/loader';
 import { errorReducer } from './error';
-import { isErrorAlert, isRefresh } from '../middleware';
+import { isErrorAlert } from '../middleware';
 
 const defMidd = getDefaultMiddleware({
    serializableCheck: false,
@@ -17,5 +17,5 @@ export const store = configureStore({
       isError: errorReducer,
       loader: loaderReducer,
    },
-   middleware: [...defMidd, isRefresh, isErrorAlert],
+   middleware: [...defMidd, isErrorAlert],
 });
