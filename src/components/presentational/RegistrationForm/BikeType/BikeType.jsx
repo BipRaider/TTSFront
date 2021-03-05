@@ -11,10 +11,10 @@ const BikeType = ({ ...props }) => {
       <select
          className={styles.select}
          size="1"
-         name="travel"
-         defaultValue="city"
+         name="city"
          onChange={({ target }) => onChange(target)}
       >
+         <option value="city">Bike type*</option>
          <option value="travel">travel</option>
          <option value="city">city</option>
          <option value="mountain">mountain</option>

@@ -3,7 +3,6 @@
 
 import axios from 'axios';
 
-//axios.defaults.baseURL = 'http://localhost:3100';
 axios.defaults.baseURL = 'https://powerful-springs-97618.herokuapp.com';
 
 axios.defaults.headers.get['Accept'] = 'application/json';
